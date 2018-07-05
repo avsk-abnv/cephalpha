@@ -1,0 +1,10 @@
+.instabox{float: left;padding: 10px;}
+.instapic{width: 100%;border-top-right-radius: 10px;border-top-left-radius: 10px;float:top;position: absolute;object-fit: cover;}
+.instapacked{border:1px solid gray; border-radius: 10px;padding: 0px;overflow: hidden;position: relative;}
+button a{color: white;width: 100%;display: block;}
+button a:hover{text-decoration: none;color: white;display: block;}
+/*h5{position: absolute;}*/
+h5{text-align: center;}
+a{color: white;}
+a:hover{text-decoration: none;color: white;}
+#jumbotron{background-color: lightgray;position: relative;height: 150px;border-radius: 10px;}

@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>Insta Clone Homepage</title>
+	<link rel="stylesheet" type="text/css" href="/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/insta.css">
+	<script type="text/javascript" src="/jquery-3.2.1.js"></script>
+</head>
+<body>
+	<% include ../partials/header %>
+	<div class="container">
+		<div id="jumbotron">
+			<h2 style="text-align: center;">Welcome to InstaClone !</h2>
+			<h6 style="text-align: center;">Not a clone though ! Just couldn't find a better name...</h6>
+			<%if(currentUser){%>
+			<button class="btn btn-success" style="border-radius: 10px; padding:0;left:40%;width:20%;position:absolute; bottom: 0px;"><a href="/instapics/new">Add new</a></button>
+			<%}%>
+		</div>
+		<br />
+		<%for(var i=0;i<allInsta.length;i++){%>
+		<div class="instabox col-lg-4">
+			<div class="col-lg-12 instapacked">
+			<img class="instapic" src="<%=allInsta[i].image%>">
+			<h5><%=allInsta[i].title%></h5>
+			<br />
+			<button class="btn btn-primary" style="padding:0;left:30%;width:40%;position:absolute; bottom: 0px;"><a href="/instapics/<%=allInsta[i]._id%>">View More</a></button>
+			</div>
+		</div>
+	<%}%>
+	</div>
+<script type="text/javascript" src="/insta.js"></script>
+</body>
+</html>

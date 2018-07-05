@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register Yourself</title>
+		<link rel="stylesheet" type="text/css" href="/bootstrap.css">
+	<style type="text/css">
+				a{color: white;}
+		a:hover{text-decoration: none;color: white;}
+	</style>
+</head>
+<body>
+	<% include ../partials/header %>
+	<%if(currentUser){%>
+		<h3 style="text-align: center;color: maroon;">Sorry ! You need to Sign Out first..</h3>
+	<%}else{%>
+		<form action="/register" method="POST" style="background-color: skyblue; border-radius: 10px;width: 400px;padding:75px;" class="container">
+			<h4 style="color: darkgray;text-align: center;">_\InstaClone/_</h4>
+			<br />
+			<%if(flag){%>
+				<h6 style="text-align: center;color: red;">Passwords are not same !</h6>
+			<%}%>
+			<br />
+			<input type="text" name="username" placeholder="Username" required style="border-radius: 5px; width: 250px;">
+			<br /><br />
+			<input type="password" id="pswd" name="password" placeholder="Password" required style="border-radius: 5px;width: 250px;">
+			<br /><br />
+			<input type="password" id="cpswd" name="cnfpassword" placeholder="Confirm Password" required style="border-radius: 5px;width: 250px;" >
+			<br /><br />
+			<button class="btn btn-success" style="padding: 0;width: 250px;">Register</button>
+		</form>
+	<%}%>
+</body>
+</html>

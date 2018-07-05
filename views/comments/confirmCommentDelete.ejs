@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Comment</title>
+		<link rel="stylesheet" type="text/css" href="/instadetail.css">
+	<link rel="stylesheet" type="text/css" href="/bootstrap.css">
+		<script type="text/javascript" src="/jquery-3.2.1.js"></script>
+	<style type="text/css">
+		a{color: white;}
+		a:hover{text-decoration: none;color: white;}
+	</style>
+</head>
+<body>
+	<% include ../partials/header %>
+	<br />
+	<%insta.comments.forEach(function(comment){%>
+			<%if(comment._id.toString()==cid){%>
+
+				<form action="/instapics/<%=insta._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST" class="container" style="margin: 0 auto;width: 600px;position: relative;">
+					<h3 style="text-align: center; color: red;">Are You Sure, you wanna delete this comment ?</h3>
+					<div style="border: 1px solid green;border-radius: 10px;width: 600px;"><%=comment.text%><br /><br /></div>
+					<button class="btn btn-danger" style="width: 180px;position: absolute;left: 250px;">Yes Delete</button>
+				</form>			
+			<%}%>
+		<%});%>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add New Post</title>
+		<link rel="stylesheet" type="text/css" href="/bootstrap.css">
+	<style type="text/css">
+				a{color: white;}
+		a:hover{text-decoration: none;color: white;}
+	</style>
+</head>
+<body>
+	<% include ../partials/header %>
+	<div style="border:1px solid gray;border-radius: 10px;width: 50%;min-width: 400px;" class="container">
+		<form action="/instapics/new" method="POST">
+			<br />
+			<h4>Add a new Post</h4>
+			<hr />
+			<h6>Image URL</h6>
+			<input type="text" name="insta[image]" placeholder="Image URL" required style="width: 100%;border-radius: 5px;">
+			<br /><br />
+			<h6>Title</h6>
+			<input type="text" name="insta[title]" placeholder="Title" required style="width: 100%;border-radius: 5px;">
+			<br /><br />
+			<h6>Description</h6>
+			<textarea name="insta[description]" rows="5" placeholder="Description" required style="width: 100%;border-radius: 5px;"></textarea>
+			<br /><br />
+			<div style="width: 100%; padding-left:35%; ">
+			<button class="btn btn-success" style="padding: 0;width: 40%;">Post Now</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<html>
+<head>
+	<title><%=insta.title%></title>
+	<link rel="stylesheet" type="text/css" href="/instadetail.css">
+	<link rel="stylesheet" type="text/css" href="/bootstrap.css">
+		<script type="text/javascript" src="/jquery-3.2.1.js"></script>
+	<style type="text/css">
+		button a{color: white;width: 100%;display: block;}
+		button a:hover{text-decoration: none;color: white;display: block;}
+		a{color: white;}
+		a:hover{text-decoration: none;color: white;}
+		button {padding:0px !important;width: 20%;position: absolute;}
+		#editpost{left: 30px;bottom: 0px;}
+		#delpost{right: 30px;bottom: 0px;}
+		#addcomment{right: 0;}
+	</style>
+</head>
+<body>
+	<% include ../partials/header %>
+	<div style="border:1px solid gray;border-radius: 10px;padding: 0;width: 75%" class="container">
+		<img src="<%=insta.image%>" class=".img" style="border-radius: 10px;width: 100%;height: auto;">
+		<br />
+		<div style="padding-left: 5%;padding-right: 5%;">
+		<h4 style="text-align: center;"><%=insta.title%></h4>
+		<br />
+		<span><%=insta.description%></span>
+		<br /><br /><br /><br />
+		<%if(currentUser){%>
+			<div style="position: relative;">
+				<button id="editpost" class="btn btn-primary"><a href="/instapics/<%=insta._id%>/edit">Edit Post</a></button>
+				<button id="delpost" class="btn btn-danger"><a href="/instapics/<%=insta._id%>/delete">Delete Post</a></button>
+			</div>
+				<br />
+			<h5>Comments</h5>
+			<div style="border-top: 1px solid gray;position: relative;padding-bottom: 30px;">
+			<br />
+			<form action="/instapics/<%=insta._id%>/comments" method="POST">
+				<textarea rows="3" style="width: 100%;padding: 5px;border-radius: 5px;" required="required" placeholder="Add a new comment..." name="comment[text]"></textarea>
+				<button id="addcomment" class="btn btn-success">Post</button>
+			</form>
+			<br />
+			<%if(insta.comments.length>0){%>
+				<%insta.comments.forEach(function(comment){%>
+					<strong><%=comment.author.username%></strong>
+					<p><%=comment["text"]%></p>
+
+					<%if(currentUser._id.toString()==comment.author.id.toString()){%>
+					<div style="border-top: 1px dotted green;">
+						<span style="font-size: 12px;"><a href="/instapics/<%=insta._id%>/comments/<%=comment._id%>" style="color: black;">Edit</a><a href="/instapics/<%=insta._id%>/comments/<%=comment._id%>/wannadelete" style="color: red;margin-left: 100px;">Delete</a></span><br />
+					</div>
+					<%}%>
+				<%})%>
+			<%}%>
+			</div>
+		<%}%>
+		</div>
+	</div>
+</body>
+</html>

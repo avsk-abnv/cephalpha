@@ -1,0 +1,20 @@
+	<nav style="top:0; font-size: 15px; font-family: 'Trebuchet MS'; background-color: gray;position: relative;
+	height: 50px; ">
+			 		<span style="position: absolute; left:50px;bottom: 15px;"><a href="/instapics" id="home">Home</a></span>
+			 		<%if(!currentUser){%>
+			 			<span style="position: absolute;right: 80px;bottom: 15px;"><a href="/login" id="login">Sign In</a></span>
+			 			<span style="position: absolute;right: 150px;bottom: 15px;"><a href="/register" id="register">Register</a></span>
+			 		<%}else {%>
+			 			<span style="position: absolute;right: 50px;bottom: 15px;"><a href="/logout" id="signout">Sign Out</a></span>
+			 			<span style="position: absolute;right: 150px;bottom: 15px;"><a href="#" id="username">Signed In As [<span style="color: orange"><%=currentUser.username%></span>]</a></span>
+			 		<%}%>
+	</nav>
+	<br />
+	<div class="container">
+	<%if(error && error.length>0){%>
+		<div class="alert alert-danger" role="alert"><%= error %></div>
+	<%}%>
+	<%if(success && success.length>0){%>
+		<div class="alert alert-success" role="alert"><%= success %></div>
+	<%}%> 
+	</div>
